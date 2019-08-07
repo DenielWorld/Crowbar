@@ -67,7 +67,7 @@ class Main extends PluginBase implements Listener{
                 $item->applyDamage($dur / $cfg->get("crowbar-uses"));
             }
             else {
-                $cfg->set("tool-mode", false);
+                $cfg->set("tool-mode", "false");
                 $inv->setItem($inv->getHeldItemIndex(), new Item(0));
             }
         }
