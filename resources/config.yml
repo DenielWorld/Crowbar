@@ -1,0 +1,19 @@
+#The ID of the crowbar item
+crowbar-id: 285
+#The META of the crowbar item
+crowbar-meta: 1
+#The name of the crowbar item (Color supported)
+crowbar-name: "&4Crowbar"
+#Lore of the crowbar item (Color supported, Page 1)
+crowbar-lore-1: "&1Breaks any block"
+#Lore of the crowbar item (Color supported, Page 1)
+crowbar-lore-2: "&1Breaks any block"
+#Lore of the crowbar item (Color supported, Page 1)
+crowbar-lore-3: "&1Breaks any block"
+#Lore of the crowbar item (Color supported, Page 1)
+crowbar-lore-4: "&1Breaks any block"
+#Message that is sent to player when he/she breaks the block.
+# {player} = Player's name
+# {block} = Name of the block
+# {item} = Crowbar name
+broken-block-message: "You ({player}) have just broken {block} using {item}"

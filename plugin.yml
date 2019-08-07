@@ -1,0 +1,6 @@
+name: Crowbar
+main: DenielWorld\Main
+version: 1.0.0
+api: 3.0.0
+author: DenielWorld
+description: Adds a crowbar item to the game
