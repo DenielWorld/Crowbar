@@ -1,4 +1,4 @@
-<?php
++<?php
 
 namespace DenielWorld;
 
@@ -7,6 +7,7 @@ use pocketmine\block\BlockFactory;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerItemHeldEvent;
 use pocketmine\item\Item;
+use pocketmine\item\Tool;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\utils\Config;
@@ -55,12 +56,25 @@ class Main extends PluginBase implements Listener{
             $blockitem = $block->getPickedItem();
             $blockitem->setCustomName($block->getName());
             $blockitem->setDamage($block->getDamage());
-            $air = new Item(0);
             $player->sendMessage($this->translateText(TextFormat::colorize($cfg->get("broken-block-message")), $blockname, $itemname, $playername));
             $block->getLevel()->dropItem($block->asVector3(), $blockitem);
             $block->getLevel()->setBlock($block->asVector3(), BlockFactory::get(Block::AIR));
-            $inv->setItem($inv->getHeldItemIndex(), $air);
+            if($cfg->get("tool-mode") == "false") {
+                $inv->setItem($inv->getHeldItemIndex(), new Item(0));
+            }
+            elseif($cfg->get("tool-mode") == "true" and $item instanceof Tool){
+                $dur = $item->getMaxDurability();
+                $item->applyDamage($dur / $cfg->get("crowbar-uses"));
+            }
+            else {
+                $cfg->set("tool-mode", false);
+                $inv->setItem($inv->getHeldItemIndex(), new Item(0));
+            }
         }
+        else {
+            return false;
+        }
+        return true;
     }
 
     public function onDisable()

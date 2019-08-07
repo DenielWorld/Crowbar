@@ -12,6 +12,10 @@ crowbar-lore-2: "&1Breaks any block"
 crowbar-lore-3: "&1Breaks any block"
 #Lore of the crowbar item (Color supported, Page 1)
 crowbar-lore-4: "&1Breaks any block"
+#If enabled, the item will be treated as a tool, and you may configure the number of uses for it in "crowbar-uses"
+tool-mode: false
+#Only matters if tool mode is enabled. Used to set the number of times that the crowbar may be used.
+crowbar-uses: 3
 #Message that is sent to player when he/she breaks the block.
 # {player} = Player's name
 # {block} = Name of the block
